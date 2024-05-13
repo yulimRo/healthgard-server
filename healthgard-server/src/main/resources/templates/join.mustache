@@ -1,0 +1,49 @@
+{{>layout/header}}
+<h1>회원가입 페이지</h1>
+
+<form action="/api/trainer/join" method="post">
+	<table>
+		<tbody>
+		<tr>
+			<td>
+				<label for="id">아이디</label>
+				<input id="id" type="text">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="password">비밀번호</label>
+				<input id="password" type="password">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="name">이름</label>
+				<input id="name" type="text">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="birth">생년월일</label>
+				<input type="text" id="birth" placeholder="yyyymmdd">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="sex">성별</label>
+				<select id="sex">
+					<option value="M">남</option>
+					<option value="FM">여</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<label for="addr1_addr2">주소</label>
+				<input type="text" id="addr1" > <input type="text" id="addr2">
+			</td>
+		</tr>
+		</tbody>
+	</table>
+</form>
+{{>layout/footer}}

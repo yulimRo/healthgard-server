@@ -1,0 +1,83 @@
+{{>layout/header}}
+<div class="col-md-12 text-center m-2">
+	<h1>신규 트레이너 등록</h1>
+</div>
+<div class="col-md-12">
+    <div class="col-md-12 text-center">
+        <form>
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">이름</label>
+                <div class="col-sm-8">
+                	<input type="text" class="form-control trainer-save-form" id="name" placeholder="이름을 입력해주세요">
+                </div>
+            </div>
+            <div class="form-group row" >
+                <label for="birth" class="col-sm-2 col-form-label">생년월일</label>
+                <div class="col-sm-8">
+                	<input type="text" id="birth" class="form-control trainer-save-form" value="{{ today }}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="sex" class="col-sm-2 col-form-label">성별</label>
+                <div class="col-sm-8 row">
+					<div class="form-check col-sm-4">
+					  <input class="form-check-input trainer-save-form" type="radio" name="sex" id="male" value="남성" checked>
+					  <label class="form-check-label" for="male">
+					    남성
+					  </label>
+					 </div>
+					 <div class="form-check col-sm-4">
+					  <input class="form-check-input trainer-save-form" type="radio" name="sex" id="female" value="여성">
+					  <label class="form-check-label" for="female">
+					    여성
+					  </label>
+					</div>
+				</div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="addr" class="col-sm-2 col-form-label">거주지</label>
+                <div class="col-sm-4">
+                	<input type="text" class="form-control trainer-save-form" id="addr1" placeholder="거주지를 입력해주세요">
+                </div>
+                <div class="col-sm-4">
+                	<input type="text" class="form-control trainer-save-form" id="addr2" placeholder="거주지 상세주소를 입력해주세요">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="telNo" class="col-sm-2 col-form-label">연락처</label>
+                <div class="col-sm-8">
+                	<input type="text" class="form-control trainer-save-form" id="telNo" placeholder="연락처를 입력해주세요('-' 제외)">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="role" class="col-sm-2 col-form-label">직위</label>
+                <div class="col-sm-8">
+	                <select class="form-control trainer-save-form" aria-label="Default select example" id="roleCd">
+					  <option selected value="">선택</option>
+					   {{#rolePositionCodeList}}
+					  	<option value="{{code}}">{{codeName}}</option>
+					   {{/rolePositionCodeList}}
+					</select>
+				</div>
+            </div>
+            <div class="form-group row">
+                <label for="role" class="col-sm-2 col-form-label">재직상태</label>
+                <div class="col-sm-8">
+	                <select class="form-control trainer-save-form" aria-label="Default select example" id="stateCd">
+					  <option selected value="">선택</option>
+					   {{#workStateCodeList}}
+					  	<option value="{{code}}">{{codeName}}</option>
+					   {{/workStateCodeList}}
+					</select>
+				</div>
+            </div>
+        </form>
+        <div class="text-center">
+			<a href="/" role="button" class="btn btn-secondary">취소</a>
+			<button type="button" class="btn btn-primary" id="trainerSaveBtn">등록</button>
+        </div>
+    </div>
+</div>
+
+{{>layout/footer}}

@@ -1,0 +1,43 @@
+{{>layout/header}}
+
+<h1> 트레이너 조회 </h1>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-6">
+            <!-- 트레이너등록 페이지 등록 -->
+            <a href="/trainer/regist" role="button" class="btn btn-primary">신규 트레이너 등록</a>
+        </div>
+    </div>
+</div>
+<br/>
+<!-- 목록 출력 영역 -->
+<table class="table table-horizontal table-bordered">
+    <thead class="thead-strong">
+        <tr>
+            <th>No.</th>
+            <th>이름</th>
+            <th>생년월일</th>
+            <th>성별</th>
+            <th>연락처</th>
+            <th>핸드폰번호</th>
+            <th>거주지</th>
+            <th>재직상태</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- trainers 라는 List를 순회-->
+        {{#trainers}}
+            <tr>
+                <td>{{trainerId}}</td>
+                <td>{{name}}</td>
+                <td>{{birth}}</td>
+                <td>{{sex}}</td>
+                <td>{{telNo}}</td>
+                <td>{{addr1}} {{addr2}}</td>
+                <td>{{state_cd}}</td>
+            </tr>
+        {{/trainers}}
+    </tbody>
+</table>
+<!-- 현제 머스테치 파일(index.mustache)을 기준으로 다른 파일을 가져옵니다. -->
+{{>layout/footer}}
