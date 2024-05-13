@@ -19,8 +19,7 @@ public class CodeService {
 
 	@Transactional
 	public List<Code> findAllByUpperCode(String upperCode){
-
-		List<Code> codeList = codeRepository.findAllByUpperCode(upperCode);
+		List<Code> codeList = codeRepository.findAllByCodeUpperCode(upperCode);
 		return codeList;
 	}
 }

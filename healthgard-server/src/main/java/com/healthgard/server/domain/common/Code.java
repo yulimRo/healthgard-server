@@ -14,15 +14,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Code extends BaseTimeEntity{
 	
+	
 	@Id
-	String code;
+	private CodePK code;
+	
 	@Column
-	String codeName;
+	private String codeName;
+	
 	@Column
-	String upperCode;
+	private int sortOrder;
+	
 	@Column
-	int sortOrder;
-	@Column
-	String deleteYn;
+	private String deleteYn;
 	
 }

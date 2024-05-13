@@ -50,7 +50,7 @@ public class IndexController {
 	}
 	
 	/**
-	 * Trainer List Page
+	 * Trainer List Page                                                                                                                     
 	 * @return
 	 */
 	@GetMapping("/trainer/list")
@@ -66,8 +66,8 @@ public class IndexController {
 	@GetMapping("/trainer/regist")
 	public String trainerRegist(Model model) {
 		
-		List<Code> rolePosition = codeService.findAllByUpperCode("ROLE_POSITION");
 		List<Code> workState = codeService.findAllByUpperCode("WORK_STATE");
+		List<Code> rolePosition = codeService.findAllByUpperCode("ROLE_POSITION");
 		
 		model.addAttribute("workStateCodeList",workState);
 		model.addAttribute("rolePositionCodeList",rolePosition);
