@@ -12,27 +12,29 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TrainerListReponseDto {
 
-	Long trainerId;
-	String name;
-	String birth;
-	String sex;
-	String tel_no;
-	String addr;
-	String role_cd;
-	String state_cd;
-	LocalDateTime updateDate;
-	String updateId;
+	private Long trainerId;
+	private String name;
+	private String birth;
+	private String sex;
+	private String telNo;
+	private String addr1;
+	private String addr2;
+	private String roleCd;
+	private String stateCd;
+	private LocalDateTime updateDate;
+	private String updateId;
 	
 	@Builder
-	public TrainerListReponseDto(Trainer entity	) {
+	public TrainerListReponseDto(Trainer entity) {
 		this.trainerId = entity.getTrainerId();
 		this.name = entity.getName();
 		this.birth = entity.getBirth();
 		this.sex = entity.getSex();
-		this.tel_no = entity.getTelNo();
-		this.addr = entity.getAddr1() + " " + entity.getAddr2();
-		this.role_cd = entity.getRoleCd();
-		this.state_cd = entity.getStateCd();
+		this.telNo = entity.getTelNo();
+		this.addr1 = entity.getAddr1();
+		this.addr2 = entity.getAddr2();
+		this.roleCd = entity.getRoleCd();
+		this.stateCd = entity.getStateCd();
 	}
 
 }

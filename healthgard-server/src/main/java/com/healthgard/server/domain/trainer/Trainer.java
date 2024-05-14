@@ -42,6 +42,20 @@ public class Trainer extends BaseTimeEntity {
 		this.stateCd = stateCd;
 	}
 	
+	public Long update(String name, String birth, String sex, String telNo, String addr1, String addr2,
+	String roleCd, String stateCd) {
+		this.name = name;
+		this.birth = birth;
+		this.sex = sex;
+		this.telNo = telNo;
+		this.addr1 = addr1;
+		this.addr2 = addr2;
+		this.roleCd = roleCd;
+		this.stateCd = stateCd;
+		
+		return this.trainerId;
+	}
+	
 	
 
 }

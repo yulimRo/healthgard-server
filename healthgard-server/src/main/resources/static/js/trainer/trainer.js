@@ -6,7 +6,7 @@ var main = {
 		
 		var _this = this;
 
-		$('#datePicker').datepicker({
+		$('.birthDatePicker').datepicker({
          format: 'yyyy-mm-dd', //데이터 포맷 형식(yyyy : 년 mm : 월 dd : 일 )
          //startDate: '-10d', //달력에서 선택 할 수 있는 가장 빠른 날짜. 이전으로는 선택 불가능 ( d : 일 m : 달 y : 년 w : 주)
          //endDate: '+10d', //달력에서 선택 할 수 있는 가장 느린 날짜. 이후로 선택 불가 ( d : 일 m : 달 y : 년 w : 주)
@@ -48,27 +48,91 @@ var main = {
       $("#trainerSaveBtn").click(function(){
 		 _this.trainerSave();
 	  });
+	  
+      $("#updateMoveBtn").click(function(){
+            window.location.href='/trainer/update/' + $(this).parent().siblings().eq(0).text();
+	  });
+	  
+	 $("#trainerUpdateBtn").click(function(){
+             _this.trainerUpdate();
+	  });
+	 $("#trainerDeleteBtn").click(function(){
+             _this.trainerDeleteBtn();
+	  });
+	  
+	  $('input[name=updateTrainerSex][value=' + $("#prev_sex").val()+']').prop("checked","checked");
+	  $('select#roleCd option[value=' + $("input#roleCd").val()+ ']').prop("selected","selected");
+	  $('select#stateCd option[value=' + $("input#stateCd").val()+ ']').prop("selected","selected");
+	 
     },
-    save : function(){
+    trainerSave : function(){
 		var data = {
-            name : $('.trainer-save-form #name').val(),
-            birth : $('.trainer-save-form #birth').val(),
-            sex : $('.trainer-save-form input[name=sex]').val(),
-            addr1 : $('.trainer-save-form #addr1').val(),
-            addr2 : $('.trainer-save-form #addr2').val(),
-            roleCd : $('.trainer-save-form #roleCd option:selected').val(),
-            stateCd : $('.trainer-save-form #stateCd option:selected').val()
+            name : $('.trainer-save-form#name').val(),
+            birth : $('.trainer-save-form#birth').val(),
+            sex : $('input[name=registTrainerSex]:checked').val(),
+            telNo : $('.trainer-save-form#telNo').val(),
+            addr1 : $('.trainer-save-form#addr1').val(),
+            addr2 : $('.trainer-save-form#addr2').val(),
+            roleCd : $('.trainer-save-form#roleCd option:selected').val(),
+            stateCd : $('.trainer-save-form#stateCd option:selected').val()
         };
         
         $.ajax({
            type :'POST',
-           url : '/api/trainer/regist',
+           url : '/api/trainer',
            dataType : 'json',
            contentType : 'application/json; charset=utf-8',
            data : JSON.stringify(data)
         }).done(function(){
             alert('신규 트레이너 정보가 등록되었습니다.');
-            window.location.href='/';
+            window.location.href='/trainer/list';
+        }).fail(function (error){
+            alert(JSON.stringify(error));
+        });
+	},
+	trainerUpdate : function(){
+		var id = $('#trainerId').val();
+		
+		var data = {
+            name : $('.trainer-update-form#name').val(),
+            birth : $('.trainer-update-form#birth').val(),
+            sex : $('input[name=updateTrainerSex]:checked').val(),
+            telNo : $('.trainer-update-form#telNo').val(),
+            addr1 : $('.trainer-update-form#addr1').val(),
+            addr2 : $('.trainer-update-form#addr2').val(),
+            roleCd : $('.trainer-update-form#roleCd option:selected').val(),
+            stateCd : $('.trainer-update-form#stateCd option:selected').val()
+        };
+        
+        var param ={
+			   "id" : id,
+			   "requestDto" : data
+		   };
+        
+        $.ajax({
+           type :'POST',
+           url : '/api/trainer/update/' + id,
+           dataType : 'json',
+           contentType : 'application/json; charset=utf-8',
+           data : JSON.stringify(data)
+        }).done(function(){
+            alert('신규 트레이너 정보가 수정되었습니다.');
+            window.location.href='/trainer/list';
+        }).fail(function (error){
+            alert(JSON.stringify(error));
+        });
+	},
+	trainerDeleteBtn : function(){
+		var id = $('#trainerId').val();
+		
+        $.ajax({
+           type :'POST',
+           url : '/api/trainer/remove/' + id,
+           dataType : 'json',
+           contentType : 'application/json; charset=utf-8'
+        }).done(function(){
+            alert('신규 트레이너 정보가 삭제되었습니다.');
+            window.location.href='/trainer/list';
         }).fail(function (error){
             alert(JSON.stringify(error));
         });
