@@ -1,6 +1,5 @@
 package com.healthgard.server.domain;
 
-import com.sun.javafx.fxml.LoadListener;
 import lombok.Getter;
 
 import org.springframework.data.annotation.CreatedBy;

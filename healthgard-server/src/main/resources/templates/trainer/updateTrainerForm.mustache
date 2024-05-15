@@ -1,0 +1,89 @@
+{{>layout/header}}
+<div class="col-md-12 text-center m-2">
+	<h1>신규 트레이너 등록</h1>
+</div>
+<div class="col-md-12">
+    <div class="col-md-12 text-center">
+        <form>
+        	<input type="hidden" id="trainerId" value="{{ trainer.trainerId }}">
+            <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">이름</label>
+                <div class="col-sm-8">
+                	<input type="text" class="form-control trainer-update-form" id="name" value="{{trainer.name}}">
+                </div>
+            </div>
+            <div class="form-group row" >
+                <label for="birth" class="col-sm-2 col-form-label">생년월일</label>
+                <div class="col-sm-8">
+                	<input type="text" id="birth" class="form-control birthDatePicker trainer-update-form" value="{{trainer.birth}}"/>
+                </div>
+            </div>
+            <div class="form-group row">
+            
+           		<input type="hidden" id="prev_sex" value="{{ trainer.sex}}">
+                <label for="sex" class="col-sm-2 col-form-label">성별</label>
+                <div class="col-sm-8 row">
+					<div class="form-check col-sm-4">
+					  <input class="form-check-input trainer-update-form" type="radio" name="updateTrainerSex" id="male" value="M">
+					  <label class="form-check-label" for="male">
+					    남성
+					  </label>
+					 </div>
+					 <div class="form-check col-sm-4">
+					  <input class="form-check-input trainer-update-form" type="radio" name="updateTrainerSex" id="female" value="F">
+					  <label class="form-check-label" for="female">
+					    여성
+					  </label>
+					</div>
+				</div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="addr" class="col-sm-2 col-form-label">거주지</label>
+                <div class="col-sm-4">
+                	<input type="text" class="form-control trainer-update-form" id="addr1" value="{{trainer.addr1}}">
+                </div>
+                <div class="col-sm-4">
+                	<input type="text" class="form-control trainer-update-form" id="addr2" value="{{trainer.addr2}}">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="telNo" class="col-sm-2 col-form-label">연락처</label>
+                <div class="col-sm-8">
+                	<input type="text" class="form-control trainer-update-form" id="telNo" value="{{trainer.telNo}}">
+                </div>
+            </div>
+            <div class="form-group row">
+            <input type="hidden" id="roleCd" value="{{ trainer.roleCd }}">
+                <label for="role" class="col-sm-2 col-form-label">직위</label>
+                <div class="col-sm-8">
+	                <select class="form-control trainer-update-form" aria-label="Default select example" id="roleCd">
+					  <option selected value="">선택</option>
+					   {{#rolePositionCodeList}}
+					  	<option value="{{code.code}}">{{codeName}}</option>
+					   {{/rolePositionCodeList}}
+					</select>
+				</div>
+            </div>
+            <div class="form-group row">
+            <input type="hidden" id="stateCd" value="{{ trainer.stateCd }}">
+                <label for="role" class="col-sm-2 col-form-label">재직상태</label>
+                <div class="col-sm-8">
+	                <select class="form-control trainer-update-form" aria-label="Default select example" id="stateCd">
+					  <option selected value="">선택</option>
+					   {{#workStateCodeList}}
+					  	<option value="{{code.code}}">{{codeName}}</option>
+					   {{/workStateCodeList}}
+					</select>
+				</div>
+            </div>
+        </form>
+        <div class="text-center">
+			<a href="/" role="button" class="btn btn-secondary">취소</a>
+			<button type="button" class="btn btn-primary" id="trainerUpdateBtn">수정</button>
+			<button type="button" class="btn btn-danger" id="trainerDeleteBtn">삭제</button>
+        </div>
+    </div>
+</div>
+
+{{>layout/footer}}
