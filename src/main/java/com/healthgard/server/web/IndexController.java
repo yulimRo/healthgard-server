@@ -32,7 +32,7 @@ public class IndexController {
 	 * Index Page 
 	 * @return
 	 */
-	@GetMapping("/index")
+	@GetMapping(value = {"/index",""})
 	public String index() {
 		return "index";
 	}
@@ -41,7 +41,7 @@ public class IndexController {
 	 * Login Page
 	 * @return
 	 */
-	@GetMapping(value = {"/login",""})
+	@GetMapping(value = {"/login"})
 	public String login() {
 		return "login";
 	}
