@@ -1,27 +1,21 @@
 package com.healthgard.server.domain.common;
 
-import java.io.Serializable;
-
-import javax.persistence.Embeddable;
-
-import lombok.Builder;
+import com.healthgard.server.domain.BaseTimeEntity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Getter
 @NoArgsConstructor
 @Embeddable
-public class CodePK implements Serializable{
+public class CodePK implements Serializable {
 
+	@Column(name="code")
 	private String code;
-	
-	private String upperCode;
 
-	@Builder
-	public CodePK(String code, String upperCode) {
-		this.code = code;
-		this.upperCode = upperCode;
-	}
-	
+	@Column(name="upper_code")
+	private String upperCode;
 	
 }

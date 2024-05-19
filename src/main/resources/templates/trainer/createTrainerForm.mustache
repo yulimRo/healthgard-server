@@ -56,7 +56,7 @@
 	                <select class="form-control trainer-save-form" aria-label="Default select example" id="roleCd">
 					  <option selected value="">선택</option>
 					   {{#rolePositionCodeList}}
-					  	<option value="{{code.code}}">{{codeName}}</option>
+					  	<option value="{{codePk.code}}">{{codeName}}</option>
 					   {{/rolePositionCodeList}}
 					</select>
 				</div>
@@ -67,7 +67,7 @@
 	                <select class="form-control trainer-save-form" aria-label="Default select example" id="stateCd">
 					  <option selected value="">선택</option>
 					   {{#workStateCodeList}}
-					  	<option value="{{code.code}}">{{codeName}}</option>
+					  	<option value="{{codePk.code}}">{{codeName}}</option>
 					   {{/workStateCodeList}}
 					</select>
 				</div>

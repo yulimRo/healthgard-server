@@ -1,5 +1,6 @@
 package com.healthgard.server.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -19,7 +20,6 @@ public class CodeService {
 
 	@Transactional
 	public List<Code> findAllByUpperCode(String upperCode){
-		List<Code> codeList = codeRepository.findAllByCodeUpperCode(upperCode);
-		return codeList;
+		return codeRepository.findAllByCodePkUpperCode(upperCode);
 	}
 }
